@@ -5,99 +5,135 @@ import Icon from "@/components/ui/icon";
 
 export default function Index() {
   return (
-    <div className="min-h-screen bg-background relative overflow-hidden">
-      {/* Grid Background */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="grid grid-cols-16 grid-rows-16 h-full w-full">
-          {Array.from({ length: 256 }).map((_, i) => (
-            <div key={i} className="border border-white/10"></div>
-          ))}
-        </div>
+    <div className="min-h-screen bg-black relative overflow-hidden">
+      {/* Grid Background Pattern */}
+      <div className="absolute inset-0 opacity-10">
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+              <path d="M 50 0 L 0 0 0 50" fill="none" stroke="white" strokeWidth="1"/>
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#grid)" />
+        </svg>
       </div>
 
-      {/* Geometric Shapes */}
-      <div className="absolute top-0 left-0 w-64 h-64 opacity-20">
-        <div className="w-full h-full bg-gradient-to-br from-primary to-transparent rounded-full blur-3xl"></div>
-      </div>
-      <div className="absolute top-20 right-20 w-32 h-32 opacity-30">
-        <div className="w-full h-full bg-secondary transform rotate-45 rounded-lg"></div>
-      </div>
-      <div className="absolute bottom-32 left-1/4 w-24 h-24 opacity-25">
-        <div className="w-full h-full border-4 border-primary rounded-full"></div>
-      </div>
-      <div className="absolute bottom-20 right-1/3 w-40 h-40 opacity-15">
-        <div className="w-full h-full bg-gradient-to-tl from-secondary to-transparent rounded-lg transform -rotate-12"></div>
+      {/* Geometric Abstract Shapes - Left Side */}
+      <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
+        {/* Large teal triangle */}
+        <div className="absolute top-0 left-0 w-0 h-0 border-l-[200px] border-l-transparent border-r-[150px] border-r-transparent border-b-[300px] border-b-teal-500 opacity-80 sm:border-l-[300px] sm:border-r-[200px] sm:border-b-[400px]"></div>
+        
+        {/* Pink geometric element */}
+        <div className="absolute top-16 left-8 w-20 h-20 bg-secondary rounded-full opacity-60 sm:top-20 sm:left-10 sm:w-32 sm:h-32"></div>
+        <div className="absolute top-24 left-12 w-16 h-16 bg-secondary rounded-full opacity-40 sm:top-32 sm:left-16 sm:w-24 sm:h-24"></div>
+        
+        {/* Blue shapes */}
+        <div className="absolute top-32 left-24 w-24 h-24 bg-blue-600 rounded-lg transform rotate-45 opacity-70 sm:top-40 sm:left-32 sm:w-40 sm:h-40"></div>
+        <div className="absolute top-48 left-16 w-12 h-12 bg-blue-400 rounded-full opacity-50 sm:top-60 sm:left-20 sm:w-20 sm:h-20"></div>
+        
+        {/* Green/teal elements */}
+        <div className="absolute top-64 left-32 w-10 h-10 bg-emerald-600 transform rotate-45 opacity-60 sm:top-80 sm:left-40 sm:w-16 sm:h-16"></div>
+        <div className="absolute bottom-32 left-8 w-20 h-20 bg-emerald-400 rounded-lg transform -rotate-12 opacity-50 sm:bottom-40 sm:left-10 sm:w-32 sm:h-32"></div>
+        
+        {/* Additional abstract elements */}
+        <div className="absolute top-80 left-6 w-4 h-4 bg-black rounded-full sm:top-96 sm:left-8 sm:w-6 sm:h-6"></div>
+        <div className="absolute top-60 left-36 w-6 h-6 bg-black rounded-full sm:top-72 sm:left-48 sm:w-8 sm:h-8"></div>
       </div>
 
       {/* Navigation */}
-      <nav className="relative z-50 p-6">
-        <div className="container mx-auto">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-3">
-              <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">Г</span>
-              </div>
-              <div>
-                <div className="text-2xl font-bold text-foreground">ГОРХОН</div>
-                <div className="text-xs text-muted-foreground uppercase tracking-wider">МЕДИАКОМАНДА</div>
+      <nav className="relative z-50 px-4 py-6 sm:px-6 sm:py-8">
+        <div className="max-w-7xl mx-auto flex items-center justify-between">
+          <div className="flex items-center space-x-4">
+            <div className="text-white">
+              <div className="text-2xl sm:text-3xl font-black tracking-tight">ГОРХОН</div>
+              <div className="text-xs text-gray-400 font-medium uppercase tracking-widest">
+                СТРАНА ВОЗМОЖНОСТЕЙ
               </div>
             </div>
-            <div className="hidden md:flex space-x-12 text-sm font-medium uppercase tracking-wider">
-              <a href="#about" className="text-foreground hover:text-primary transition-colors border-r border-border pr-6">О НАС</a>
-              <a href="#team" className="text-foreground hover:text-primary transition-colors border-r border-border pr-6">КОМАНДА</a>
-              <a href="#projects" className="text-foreground hover:text-primary transition-colors">ПРОЕКТЫ</a>
-            </div>
-            <Button variant="outline" className="md:hidden border-border">
-              <Icon name="Menu" size={20} />
-            </Button>
           </div>
+          
+          <div className="hidden lg:flex items-center space-x-16 text-sm font-bold uppercase tracking-wider">
+            <a href="#about" className="text-white hover:text-primary transition-colors px-4 py-2">О ПРОЕКТЕ</a>
+            <a href="#projects" className="text-white hover:text-primary transition-colors px-4 py-2">ПРОЕКТЫ</a>
+            <a href="#contact" className="text-white hover:text-primary transition-colors px-4 py-2">КОНТАКТЫ</a>
+          </div>
+          
+          <Button variant="ghost" className="lg:hidden text-white">
+            <Icon name="Menu" size={24} />
+          </Button>
         </div>
       </nav>
 
       {/* Hero Section */}
-      <section className="relative z-10 pt-16 pb-24 px-6">
-        <div className="container mx-auto">
-          <div className="max-w-4xl">
-            <Badge variant="secondary" className="mb-8 px-6 py-2 text-sm font-medium uppercase tracking-wider">
-              Добровольная медиакоманда
-            </Badge>
-            <h1 className="text-6xl md:text-8xl font-bold mb-8 leading-tight">
-              <span className="text-white">«ГОРХОН» — твой старт</span><br />
-              <span className="text-white">в мир </span>
-              <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">медиавозможностей</span>
-            </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground mb-12 leading-relaxed max-w-2xl">
-              Пройди путь от начинающего автора до лидера общественного мнения в сфере контент-маркетинга и SMM
-            </p>
-            <div className="flex flex-col sm:flex-row gap-6">
-              <Button size="lg" className="px-12 py-6 text-lg font-semibold uppercase tracking-wider rounded-2xl">
-                Связаться с командой
-              </Button>
-              <Button variant="outline" size="lg" className="px-12 py-6 text-lg font-semibold uppercase tracking-wider rounded-2xl border-border">
-                Наши проекты
-              </Button>
+      <section className="relative z-10 px-4 py-8 sm:px-6 lg:py-16">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            {/* Left Content */}
+            <div className="max-w-3xl">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-black leading-tight mb-6 sm:mb-8 text-white">
+                «ГОРХОН» — твой старт<br />
+                в мир медиавозможностей
+              </h1>
+              
+              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 mb-8 sm:mb-12 leading-relaxed font-medium">
+                Строим мнение о поселке в диджитал мире через официальное сообщество в соцсетях
+              </p>
+              
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button 
+                  size="lg" 
+                  className="bg-white text-black hover:bg-gray-100 px-6 sm:px-8 py-4 sm:py-6 text-sm sm:text-base font-bold uppercase tracking-wider rounded-full transition-all duration-300"
+                >
+                  СВЯЗАТЬСЯ С НАМИ
+                </Button>
+              </div>
             </div>
-          </div>
-          
-          {/* Decorative Photos */}
-          <div className="absolute right-0 top-1/2 transform -translate-y-1/2 hidden lg:block">
-            <div className="relative">
-              <div className="w-80 h-60 bg-card rounded-3xl p-4 transform rotate-6 shadow-2xl">
-                <img 
-                  src="/img/3121379c-a970-4a50-b754-1caca6d4e8d3.jpg" 
-                  alt="Команда Горхон"
-                  className="w-full h-full object-cover rounded-2xl"
-                />
+
+            {/* Right Side - Photos */}
+            <div className="relative mt-8 lg:mt-0">
+              {/* Mobile version - single photo */}
+              <div className="lg:hidden">
+                <div className="w-full max-w-sm mx-auto bg-white p-3 rounded-2xl shadow-2xl">
+                  <img 
+                    src="https://cdn.poehali.dev/files/80a58e99-2b65-40a9-8533-e4763ab4af46.jpg"
+                    alt="Горхон поселок"
+                    className="w-full h-48 object-cover rounded-xl"
+                  />
+                </div>
               </div>
-              <div className="absolute -bottom-8 -left-8 w-64 h-48 bg-card rounded-3xl p-4 transform -rotate-12 shadow-2xl">
-                <img 
-                  src="/img/85b451cf-5ba9-4893-af96-6e34d090ab46.jpg" 
-                  alt="Проект команды"
-                  className="w-full h-full object-cover rounded-2xl"
-                />
-              </div>
-              <div className="absolute -top-4 -right-4 w-16 h-16 bg-primary rounded-full flex items-center justify-center">
-                <Icon name="Star" size={24} className="text-white" />
+              
+              {/* Desktop version - overlapping photos */}
+              <div className="relative hidden lg:block">
+                {/* Main large photo */}
+                <div className="relative">
+                  <div className="w-80 h-64 bg-white p-3 rounded-2xl shadow-2xl transform rotate-6 hover:rotate-3 transition-transform duration-300">
+                    <img 
+                      src="https://cdn.poehali.dev/files/80a58e99-2b65-40a9-8533-e4763ab4af46.jpg"
+                      alt="Горхон поселок"
+                      className="w-full h-full object-cover rounded-xl"
+                    />
+                  </div>
+                  
+                  {/* Second overlapping photo */}
+                  <div className="absolute -bottom-8 -left-12 w-72 h-56 bg-white p-3 rounded-2xl shadow-2xl transform -rotate-12 hover:-rotate-6 transition-transform duration-300">
+                    <img 
+                      src="https://cdn.poehali.dev/files/05b861ba-cd19-4486-8cef-18e90153271c.jpg"
+                      alt="Памятник в Горхоне"
+                      className="w-full h-full object-cover rounded-xl"
+                    />
+                  </div>
+                </div>
+                
+                {/* Star decoration */}
+                <div className="absolute -top-4 -right-8 text-white transform rotate-12">
+                  <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2" />
+                  </svg>
+                </div>
+                
+                {/* Small decorative circles */}
+                <div className="absolute -bottom-4 right-8 w-12 h-12 bg-blue-500 rounded-full opacity-60"></div>
+                <div className="absolute top-8 right-4 w-8 h-8 bg-secondary rounded-full opacity-80"></div>
               </div>
             </div>
           </div>
@@ -105,128 +141,74 @@ export default function Index() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="relative z-10 py-24 px-6">
-        <div className="container mx-auto">
-          <div className="max-w-3xl mx-auto text-center mb-20">
-            <h2 className="text-5xl md:text-6xl font-bold mb-8 text-white">О НАС</h2>
-            <p className="text-xl text-muted-foreground leading-relaxed">
-              Мы — команда энтузиастов, специализирующихся на ведении социальных сетей и контент-маркетинге. 
-              Наша миссия — помочь проектам и брендам найти свой уникальный голос в цифровом пространстве.
+      <section id="about" className="relative z-10 py-12 sm:py-16 lg:py-24 px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-6 sm:mb-8 text-white uppercase">О ПРОЕКТЕ</h2>
+            <p className="text-lg sm:text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+              Медиакоманда «Горхон» — это команда, которая ведет официальное сообщество поселка в социальных сетях, 
+              создает качественный контент и формирует позитивное мнение о нашем поселке в цифровом пространстве.
             </p>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-8">
-            <Card className="bg-card border-border hover:border-primary/50 transition-all duration-300 group">
-              <CardHeader className="text-center pb-6">
-                <div className="w-20 h-20 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
-                  <Icon name="Palette" size={36} className="text-primary" />
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            <Card className="bg-gray-900 border-gray-800 hover:border-primary/50 transition-all duration-300 group">
+              <CardHeader className="text-center pb-4 sm:pb-6">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:scale-110 transition-transform">
+                  <Icon name="Camera" size={28} className="text-primary sm:w-9 sm:h-9" />
                 </div>
-                <CardTitle className="text-2xl text-white">Креативность</CardTitle>
+                <CardTitle className="text-xl sm:text-2xl text-white font-bold">КОНТЕНТ</CardTitle>
               </CardHeader>
               <CardContent>
-                <CardDescription className="text-center text-muted-foreground">
-                  Создаем уникальный визуальный контент, который выделяется в потоке социальных сетей
+                <CardDescription className="text-center text-gray-400 text-sm sm:text-base">
+                  Создаем качественный визуальный контент, который показывает жизнь поселка с лучшей стороны
                 </CardDescription>
               </CardContent>
             </Card>
 
-            <Card className="bg-card border-border hover:border-primary/50 transition-all duration-300 group">
-              <CardHeader className="text-center pb-6">
-                <div className="w-20 h-20 bg-gradient-to-br from-secondary/20 to-primary/20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
-                  <Icon name="Target" size={36} className="text-secondary" />
+            <Card className="bg-gray-900 border-gray-800 hover:border-primary/50 transition-all duration-300 group">
+              <CardHeader className="text-center pb-4 sm:pb-6">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-secondary/20 to-primary/20 rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:scale-110 transition-transform">
+                  <Icon name="Users" size={28} className="text-secondary sm:w-9 sm:h-9" />
                 </div>
-                <CardTitle className="text-2xl text-white">Стратегия</CardTitle>
+                <CardTitle className="text-xl sm:text-2xl text-white font-bold">СООБЩЕСТВО</CardTitle>
               </CardHeader>
               <CardContent>
-                <CardDescription className="text-center text-muted-foreground">
-                  Разрабатываем продуманные стратегии продвижения, основанные на анализе целевой аудитории
+                <CardDescription className="text-center text-gray-400 text-sm sm:text-base">
+                  Объединяем жителей через официальные каналы связи в социальных сетях
                 </CardDescription>
               </CardContent>
             </Card>
 
-            <Card className="bg-card border-border hover:border-primary/50 transition-all duration-300 group">
-              <CardHeader className="text-center pb-6">
-                <div className="w-20 h-20 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
-                  <Icon name="TrendingUp" size={36} className="text-primary" />
+            <Card className="bg-gray-900 border-gray-800 hover:border-primary/50 transition-all duration-300 group sm:col-span-2 lg:col-span-1">
+              <CardHeader className="text-center pb-4 sm:pb-6">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:scale-110 transition-transform">
+                  <Icon name="Megaphone" size={28} className="text-primary sm:w-9 sm:h-9" />
                 </div>
-                <CardTitle className="text-2xl text-white">Результат</CardTitle>
+                <CardTitle className="text-xl sm:text-2xl text-white font-bold">РЕПУТАЦИЯ</CardTitle>
               </CardHeader>
               <CardContent>
-                <CardDescription className="text-center text-muted-foreground">
-                  Достигаем измеримых результатов: рост охватов, вовлеченности и узнаваемости бренда
+                <CardDescription className="text-center text-gray-400 text-sm sm:text-base">
+                  Формируем положительный имидж поселка в диджитал пространстве
                 </CardDescription>
               </CardContent>
             </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Team Section */}
-      <section id="team" className="relative z-10 py-24 px-6">
-        <div className="container mx-auto">
-          <div className="text-center mb-20">
-            <h2 className="text-5xl md:text-6xl font-bold mb-8 text-white">НАША КОМАНДА</h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Профессионалы с опытом в маркетинге, дизайне, копирайтинге и анализе данных
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              {
-                name: "Анна Смирнова",
-                role: "SMM-менеджер",
-                icon: "User",
-                description: "Ведет стратегию продвижения и планирует контент-план"
-              },
-              {
-                name: "Максим Петров",
-                role: "Дизайнер",
-                icon: "Palette",
-                description: "Создает визуальный контент и разрабатывает фирменный стиль"
-              },
-              {
-                name: "Елена Козлова",
-                role: "Копирайтер",
-                icon: "PenTool",
-                description: "Пишет тексты и работает над тоном коммуникации"
-              },
-              {
-                name: "Дмитрий Волков",
-                role: "Аналитик",
-                icon: "BarChart3",
-                description: "Анализирует эффективность и оптимизирует стратегии"
-              }
-            ].map((member, index) => (
-              <Card key={index} className="bg-card border-border hover:border-primary/50 transition-all duration-300 group text-center">
-                <CardHeader className="pb-4">
-                  <div className="w-24 h-24 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
-                    <Icon name={member.icon as any} size={36} className="text-primary" />
-                  </div>
-                  <CardTitle className="text-xl text-white">{member.name}</CardTitle>
-                  <Badge variant="secondary" className="mt-2 font-medium">{member.role}</Badge>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-muted-foreground">{member.description}</CardDescription>
-                </CardContent>
-              </Card>
-            ))}
           </div>
         </div>
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="relative z-10 py-24 px-6">
-        <div className="container mx-auto">
-          <div className="text-center mb-20">
-            <h2 className="text-5xl md:text-6xl font-bold mb-8 text-white">НАШИ ПРОЕКТЫ</h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Два масштабных проекта, которые показывают наш подход к созданию контента
+      <section id="projects" className="relative z-10 py-12 sm:py-16 lg:py-24 px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16 sm:mb-20">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-6 sm:mb-8 text-white uppercase">НАШИ ПРОЕКТЫ</h2>
+            <p className="text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto">
+              Основные направления нашей деятельности по развитию медиаприсутствия поселка
             </p>
           </div>
           
-          <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-            <Card className="bg-card border-border hover:border-primary/50 transition-all duration-300 group overflow-hidden">
+          <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 max-w-6xl mx-auto">
+            <Card className="bg-gray-900 border-gray-800 hover:border-primary/50 transition-all duration-300 group overflow-hidden">
               <div className="aspect-video relative overflow-hidden">
                 <img 
                   src="/img/85b451cf-5ba9-4893-af96-6e34d090ab46.jpg" 
@@ -234,30 +216,30 @@ export default function Index() {
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                <Badge className="absolute top-6 left-6 bg-primary text-white font-medium px-4 py-2">ФОТОПРОЕКТ</Badge>
-                <div className="absolute bottom-6 left-6 right-6">
-                  <h3 className="text-2xl font-bold text-white mb-2">По волнам школьной памяти</h3>
+                <Badge className="absolute top-4 left-4 sm:top-6 sm:left-6 bg-primary text-white font-bold px-3 py-1 sm:px-4 sm:py-2 uppercase tracking-wider text-xs sm:text-sm">ФОТОПРОЕКТ</Badge>
+                <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6">
+                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">По волнам школьной памяти</h3>
                 </div>
               </div>
               <CardHeader>
-                <CardDescription className="text-base text-muted-foreground">
-                  Фотопроект, посвященный сохранению школьных воспоминаний и созданию визуальной истории образовательных учреждений
+                <CardDescription className="text-sm sm:text-base text-gray-400">
+                  Документируем историю образовательных учреждений поселка через фотографии и воспоминания жителей
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="flex flex-wrap gap-2 mb-6">
-                  <Badge variant="outline" className="border-primary/30 text-primary">Фотография</Badge>
-                  <Badge variant="outline" className="border-primary/30 text-primary">Сторителлинг</Badge>
-                  <Badge variant="outline" className="border-primary/30 text-primary">Архивация</Badge>
+                <div className="flex flex-wrap gap-2 mb-4 sm:mb-6">
+                  <Badge variant="outline" className="border-primary/30 text-primary font-medium text-xs sm:text-sm">Фотография</Badge>
+                  <Badge variant="outline" className="border-primary/30 text-primary font-medium text-xs sm:text-sm">История</Badge>
+                  <Badge variant="outline" className="border-primary/30 text-primary font-medium text-xs sm:text-sm">Архив</Badge>
                 </div>
-                <Button className="w-full rounded-xl font-semibold">
+                <Button className="w-full rounded-xl font-bold uppercase tracking-wider text-sm sm:text-base">
                   <Icon name="ExternalLink" size={16} className="mr-2" />
                   ПОДРОБНЕЕ
                 </Button>
               </CardContent>
             </Card>
 
-            <Card className="bg-card border-border hover:border-primary/50 transition-all duration-300 group overflow-hidden">
+            <Card className="bg-gray-900 border-gray-800 hover:border-primary/50 transition-all duration-300 group overflow-hidden">
               <div className="aspect-video relative overflow-hidden">
                 <img 
                   src="/img/526cedaf-0151-466e-b4b2-af2c3962d99a.jpg" 
@@ -265,23 +247,23 @@ export default function Index() {
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                <Badge className="absolute top-6 left-6 bg-secondary text-white font-medium px-4 py-2">ВЕБ-ПРИЛОЖЕНИЕ</Badge>
-                <div className="absolute bottom-6 left-6 right-6">
-                  <h3 className="text-2xl font-bold text-white mb-2">Горхон.Online 360°</h3>
+                <Badge className="absolute top-4 left-4 sm:top-6 sm:left-6 bg-secondary text-white font-bold px-3 py-1 sm:px-4 sm:py-2 uppercase tracking-wider text-xs sm:text-sm">ВЕБ-ПРИЛОЖЕНИЕ</Badge>
+                <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6">
+                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">Горхон.Online 360°</h3>
                 </div>
               </div>
               <CardHeader>
-                <CardDescription className="text-base text-muted-foreground">
-                  Интерактивное веб-приложение для создания и просмотра панорамных туров с возможностью погружения в 360° контент
+                <CardDescription className="text-sm sm:text-base text-gray-400">
+                  Интерактивные виртуальные туры по поселку с возможностью 360° просмотра достопримечательностей
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="flex flex-wrap gap-2 mb-6">
-                  <Badge variant="outline" className="border-secondary/30 text-secondary">Web Development</Badge>
-                  <Badge variant="outline" className="border-secondary/30 text-secondary">VR/AR</Badge>
-                  <Badge variant="outline" className="border-secondary/30 text-secondary">UX/UI</Badge>
+                <div className="flex flex-wrap gap-2 mb-4 sm:mb-6">
+                  <Badge variant="outline" className="border-secondary/30 text-secondary font-medium text-xs sm:text-sm">VR-туры</Badge>
+                  <Badge variant="outline" className="border-secondary/30 text-secondary font-medium text-xs sm:text-sm">Интерактив</Badge>
+                  <Badge variant="outline" className="border-secondary/30 text-secondary font-medium text-xs sm:text-sm">3D</Badge>
                 </div>
-                <Button variant="outline" className="w-full rounded-xl font-semibold border-border">
+                <Button variant="outline" className="w-full rounded-xl font-bold uppercase tracking-wider border-gray-700 text-sm sm:text-base">
                   <Icon name="ExternalLink" size={16} className="mr-2" />
                   ДЕМО ВЕРСИЯ
                 </Button>
@@ -291,80 +273,64 @@ export default function Index() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="relative z-10 py-24 px-6">
-        <div className="container mx-auto text-center">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-5xl md:text-6xl font-bold mb-8 text-white">ГОТОВЫ К СОТРУДНИЧЕСТВУ?</h2>
-            <p className="text-xl text-muted-foreground mb-12 leading-relaxed">
-              Свяжитесь с нами, чтобы обсудить ваш проект и узнать, как мы можем помочь вашему бренду выделиться в цифровом пространстве
-            </p>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <Button size="lg" className="px-12 py-6 text-lg font-semibold uppercase tracking-wider rounded-2xl">
-                <Icon name="Mail" size={20} className="mr-3" />
-                Написать нам
-              </Button>
-              <Button variant="outline" size="lg" className="px-12 py-6 text-lg font-semibold uppercase tracking-wider rounded-2xl border-border">
-                <Icon name="Phone" size={20} className="mr-3" />
-                Заказать звонок
-              </Button>
-            </div>
+      {/* Contact Section */}
+      <section id="contact" className="relative z-10 py-12 sm:py-16 lg:py-24 px-4 sm:px-6">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-6 sm:mb-8 text-white uppercase">СВЯЗАТЬСЯ С НАМИ</h2>
+          <p className="text-lg sm:text-xl text-gray-300 mb-8 sm:mb-12 leading-relaxed">
+            Хотите присоединиться к нашей команде или предложить идею для нового проекта? Свяжитесь с нами!
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center">
+            <Button size="lg" className="bg-white text-black hover:bg-gray-100 px-8 sm:px-12 py-4 sm:py-6 text-base sm:text-lg font-bold uppercase tracking-wider rounded-full">
+              <Icon name="Mail" size={20} className="mr-3" />
+              НАПИСАТЬ НАМ
+            </Button>
+            <Button variant="outline" size="lg" className="border-gray-700 text-white hover:bg-white hover:text-black px-8 sm:px-12 py-4 sm:py-6 text-base sm:text-lg font-bold uppercase tracking-wider rounded-full">
+              <Icon name="MessageCircle" size={20} className="mr-3" />
+              TELEGRAM
+            </Button>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="relative z-10 border-t border-border py-16 px-6">
-        <div className="container mx-auto">
-          <div className="grid md:grid-cols-4 gap-12">
-            <div className="md:col-span-2">
-              <div className="flex items-center space-x-3 mb-6">
-                <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-xl">Г</span>
-                </div>
-                <div>
-                  <div className="text-2xl font-bold text-white">ГОРХОН</div>
-                  <div className="text-xs text-muted-foreground uppercase tracking-wider">МЕДИАКОМАНДА</div>
+      <footer className="relative z-10 border-t border-gray-800 py-8 sm:py-12 px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            <div className="sm:col-span-2 lg:col-span-1">
+              <div className="text-white mb-4">
+                <div className="text-xl sm:text-2xl font-black">ГОРХОН</div>
+                <div className="text-xs text-gray-500 font-medium uppercase tracking-widest">
+                  МЕДИАКОМАНДА
                 </div>
               </div>
-              <p className="text-muted-foreground mb-8 leading-relaxed">
-                Добровольная медиакоманда, специализирующаяся на ведении социальных сетей и контент-маркетинге
+              <p className="text-gray-400 text-sm leading-relaxed">
+                Официальная медиакоманда поселка Горхон, создающая качественный контент в социальных сетях
               </p>
-              <div className="flex space-x-4">
-                <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-primary hover:bg-primary/10 rounded-xl">
-                  <Icon name="Instagram" size={20} />
-                </Button>
-                <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-primary hover:bg-primary/10 rounded-xl">
-                  <Icon name="Facebook" size={20} />
-                </Button>
-                <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-primary hover:bg-primary/10 rounded-xl">
-                  <Icon name="Twitter" size={20} />
-                </Button>
-              </div>
             </div>
             
             <div>
-              <h4 className="font-bold text-white mb-6 uppercase tracking-wider">Услуги</h4>
-              <ul className="space-y-3 text-muted-foreground">
+              <h4 className="font-bold text-white mb-4 uppercase tracking-wider text-sm">Проекты</h4>
+              <ul className="space-y-2 text-gray-400 text-sm">
+                <li className="hover:text-primary transition-colors cursor-pointer">Фотопроекты</li>
+                <li className="hover:text-primary transition-colors cursor-pointer">Виртуальные туры</li>
                 <li className="hover:text-primary transition-colors cursor-pointer">SMM продвижение</li>
                 <li className="hover:text-primary transition-colors cursor-pointer">Контент-маркетинг</li>
-                <li className="hover:text-primary transition-colors cursor-pointer">Дизайн</li>
-                <li className="hover:text-primary transition-colors cursor-pointer">Аналитика</li>
               </ul>
             </div>
             
             <div>
-              <h4 className="font-bold text-white mb-6 uppercase tracking-wider">Контакты</h4>
-              <ul className="space-y-3 text-muted-foreground">
+              <h4 className="font-bold text-white mb-4 uppercase tracking-wider text-sm">Контакты</h4>
+              <ul className="space-y-2 text-gray-400 text-sm">
                 <li className="hover:text-primary transition-colors cursor-pointer">info@gorhon.ru</li>
-                <li className="hover:text-primary transition-colors cursor-pointer">+7 (999) 123-45-67</li>
                 <li className="hover:text-primary transition-colors cursor-pointer">Telegram: @gorhon</li>
+                <li className="hover:text-primary transition-colors cursor-pointer">ВКонтакте</li>
               </ul>
             </div>
           </div>
           
-          <div className="border-t border-border mt-12 pt-8 text-center text-muted-foreground">
-            <p>&copy; 2024 ГОРХОН. Все права защищены.</p>
+          <div className="border-t border-gray-800 mt-6 sm:mt-8 pt-6 sm:pt-8 text-center text-gray-500 text-xs sm:text-sm">
+            <p>&copy; 2024 ГОРХОН МЕДИАКОМАНДА. Все права защищены.</p>
           </div>
         </div>
       </footer>
